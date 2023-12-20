@@ -1,0 +1,9 @@
+from Bio.PDB.PDBParser import PDBParser
+from Bio.PDB.Polypeptide import PPBuilder
+from Bio.PDB import PDBList
+pdb2= PDBList()
+pdb2.retrieve_pdb_file('5CMU', pdir='.' , file_format='pdb')
+structure_pdb= structure_pdb.get_structure('5CMU' , '5cmu.pdb' )
+chains= list(structure_pdb.get_chains())
+for pp in  chains.build_peptides(chains):
+    print(pp.get_sequence())
